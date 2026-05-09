@@ -167,15 +167,31 @@ const TechStack = () => {
   }, []);
 
   return (
-    <div className="techstack">
-      <h2> My Techstack</h2>
-
+    <div id="tech" style={{ width: "100%", height: "100vh", position: "relative" }}>
+      <h2 style={{
+        position: 'absolute',
+        top: '10%',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        fontSize: '70px',
+        fontWeight: 400,
+        textAlign: 'center',
+        background: 'linear-gradient(0deg, #ffd700, #ffffff)',
+        backgroundClip: 'text',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        color: 'transparent',
+        zIndex: 10,
+        pointerEvents: 'none',
+        margin: 0
+      }}>
+        My <span>Techstack</span>
+      </h2>
       <Canvas
         shadows
-        gl={{ alpha: true, stencil: false, depth: false, antialias: false }}
-        camera={{ position: [0, 0, 20], fov: 32.5, near: 1, far: 100 }}
-        onCreated={(state) => (state.gl.toneMappingExposure = 1.5)}
-        className="tech-canvas"
+        dpr={[1, 1.5]}
+        gl={{ antialias: false }}
+        camera={{ position: [0, 0, 25], fov: 35, near: 1, far: 50 }}
       >
         <ambientLight intensity={1} />
         <spotLight

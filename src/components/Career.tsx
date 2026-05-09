@@ -1,8 +1,30 @@
+import { useEffect, useState } from "react";
 import "./styles/Career.css";
+import { education as localEducation, experience as localExperience, CareerItem } from "../data/careerData";
+import { MdArrowOutward } from "react-icons/md";
 
 const Career = () => {
+  const [education, setEducation] = useState<CareerItem[]>(localEducation);
+  const [experience, setExperience] = useState<CareerItem[]>(localExperience);
+
+  useEffect(() => {
+    // You can replace this URL with your own API endpoint or a GitHub Gist URL
+    // that returns your LinkedIn data in JSON format.
+    const EXTERNAL_DATA_URL = ""; 
+
+    if (EXTERNAL_DATA_URL) {
+      fetch(EXTERNAL_DATA_URL)
+        .then(res => res.json())
+        .then(data => {
+          if (data.education) setEducation(data.education);
+          if (data.experience) setExperience(data.experience);
+        })
+        .catch(err => console.error("Failed to fetch LinkedIn data:", err));
+    }
+  }, []);
+
   return (
-    <div className="career-section section-container">
+    <div className="career-section section-container" id="career">
       <div className="career-container">
         <h2>
           Education <span>&</span>
@@ -12,45 +34,48 @@ const Career = () => {
           <div className="career-timeline">
             <div className="career-dot"></div>
           </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>BE in Computer Science Engineering</h4>
-                <h5>CITNC, Bangalore</h5>
+          
+          {/* Education Section */}
+          {education.map((item, index) => (
+            <div className="career-info-box" key={`edu-${index}`}>
+              <div className="career-info-in">
+                <div className="career-role">
+                  <h4>{item.role}</h4>
+                  <h5>
+                    {item.company}
+                    {item.link && (
+                      <a href={item.link} target="_blank" rel="noopener noreferrer" className="career-link">
+                        <MdArrowOutward />
+                      </a>
+                    )}
+                  </h5>
+                </div>
+                <h3>{item.duration}</h3>
               </div>
-              <h3>2025-2029</h3>
+              <p>{item.description}</p>
             </div>
-            <p>
-              Pursuing a Bachelor of Engineering in Computer Science, focusing on
-              AI, modular systems, and biometric platforms.
-            </p>
-          </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>Webmaster</h4>
-                <h5>IEEE CITNC AESS Society</h5>
+          ))}
+
+          {/* Experience Section */}
+          {experience.map((item, index) => (
+            <div className="career-info-box" key={`exp-${index}`}>
+              <div className="career-info-in">
+                <div className="career-role">
+                  <h4>{item.role}</h4>
+                  <h5>
+                    {item.company}
+                    {item.link && (
+                      <a href={item.link} target="_blank" rel="noopener noreferrer" className="career-link">
+                        <MdArrowOutward />
+                      </a>
+                    )}
+                  </h5>
+                </div>
+                <h3>{item.duration}</h3>
               </div>
-              <h3>JAN 2026 - PRESENT</h3>
+              <p>{item.description}</p>
             </div>
-            <p>
-              Managing web assets and digital presence for the IEEE Aerospace and
-              Electronic Systems Society at CITNC.
-            </p>
-          </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>GenAI & AI Certifications</h4>
-                <h5>IBM & Outskill</h5>
-              </div>
-              <h3>2024</h3>
-            </div>
-            <p>
-              Completed IBM Applied AI Certificate and Outskill GenAI Accelerator,
-              mastering prompt engineering and AI-driven workflows.
-            </p>
-          </div>
+          ))}
         </div>
       </div>
     </div>

@@ -80,6 +80,21 @@
   text-transform: capitalize;
   margin: 10px 0px;
   color: var(--accentColor);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.career-link {
+  color: inherit;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.career-link:hover {
+  transform: translate(2px, -2px);
+  color: #ffffff;
 }
 
 .career-timeline {
