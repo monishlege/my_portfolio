@@ -8,31 +8,31 @@ const projects = [
     title: "Swasth AI",
     category: "Healthcare for Rural India",
     tools: "Multilingual Chat, Voice Support, Medication Guidance",
-    image: "C:/Users/Administrator/OneDrive/Desktop/certificate/my_portfolio/Swasth.ai.png",
+    image: "/images/Swasth.ai.png",
   },
   {
     title: "Tata Steel Anti-Pilferage",
     category: "AI Monitoring Console",
     tools: "FastAPI, Vue, Leaflet, Python AI Agents",
-    image: "C:/Users/Administrator/OneDrive/Desktop/certificate/my_portfolio/Tata Steel Anti-Pilferage.png",  
+    image: "/images/Tata Steel Anti-Pilferage.png",  
   },
   {
     title: "Smart Biometric System",
     category: "Biometric Platform",
     tools: "Modular Design, Emotion-Aware, Excel Logging",
-    image: "C:/Users/Administrator/OneDrive/Desktop/certificate/my_portfolio/Smart Biometric System.png",
+    image: "/images/Smart Biometric System.png",
   },
   {
     title: "Vehicle Tracking Dashboard",
     category: "SIH Project",
     tools: "React, Node.js, WebSocket, Fleet Monitoring",
-    image: "C:/Users/Administrator/OneDrive/Desktop/certificate/my_portfolio/Vehicle Tracking Dashboard.png",
+    image: "/images/Vehicle Tracking Dashboard.png",
   },
   {
     title: "Autonomous Navigation",
     category: "Mobile Sensor AI",
     tools: "Android, Python, ML Models, GPS/Sensors",
-    image: "C:/Users/Administrator/OneDrive/Desktop/certificate/my_portfolio/Autonomous Navigation.png",
+    image: "/images/Autonomous Navigation.png",
   },
 ];
 
